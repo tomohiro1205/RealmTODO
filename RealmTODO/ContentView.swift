@@ -16,12 +16,25 @@ struct MainView: View {
                 ForEach(viewModel.todoItems.freeze()) { item in
                     Text("\(item.title)")
                 }
+                // onDelete 内で、削除処理
+                .onDelete { indexSet in
+                    if let index = indexSet.first {
+                        // viewModel には、removeTODOItem メソッドを作成予定
+                        viewModel.removeTODOItem(viewModel.todoItems[index].id)
+                    }
+                }
             }
             .navigationTitle("RealmTODO")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Text("#: \(viewModel.todoItems.count)")
+                    HStack {
+#if os(iOS)
+                        EditButton()
+#endif
+
+                        Text("#: \(viewModel.todoItems.count)")
+                    }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {

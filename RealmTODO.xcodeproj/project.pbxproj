@@ -15,6 +15,7 @@
 		4C50F3F82B93530A00149416 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4C50F3F72B93530A00149416 /* RealmSwift */; };
 		4C50F3FA2B93532400149416 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F3F92B93532400149416 /* Model.swift */; };
 		4C50F3FC2B93537700149416 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F3FB2B93537700149416 /* ViewModel.swift */; };
+		4C50F4432B954A7500149416 /* Model+Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F4422B954A7500149416 /* Model+Command.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4C50F3ED2B9352E700149416 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C50F3F92B93532400149416 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4C50F3FB2B93537700149416 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4C50F4422B954A7500149416 /* Model+Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Command.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				4C50F3E62B9352E500149416 /* RealmTODOApp.swift */,
 				4C50F3E82B9352E500149416 /* ContentView.swift */,
+				4C50F4422B954A7500149416 /* Model+Command.swift */,
 				4C50F3FB2B93537700149416 /* ViewModel.swift */,
 				4C50F3F92B93532400149416 /* Model.swift */,
 				4C50F3EA2B9352E700149416 /* Assets.xcassets */,
@@ -158,6 +161,7 @@
 				4C50F3E92B9352E500149416 /* ContentView.swift in Sources */,
 				4C50F3FC2B93537700149416 /* ViewModel.swift in Sources */,
 				4C50F3E72B9352E500149416 /* RealmTODOApp.swift in Sources */,
+				4C50F4432B954A7500149416 /* Model+Command.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

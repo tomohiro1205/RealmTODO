@@ -5,10 +5,11 @@
 //  Created by 木村朋広 on 2024/03/02.
 //
 
+
 import Foundation
 import RealmSwift
 
-class TODOModel: ObservableObject{
+class TODOModel: ObservableObject {
     var config: Realm.Configuration
 
     init() {
@@ -19,19 +20,19 @@ class TODOModel: ObservableObject{
         return try! Realm(configuration: config)
     }
 
-    var items: Results <TODOItem>{
+    var items: Results<TODOItem> {
         realm.objects(TODOItem.self)
     }
-    func addTODOItem(_ title: String, detail: String) {
-        let item = TODOItem()
-        item.id = UUID()
-        item.title = title
-        item.detail = detail
-        try! realm.write {
-            realm.add(item)
-        }
+
+    func itemFromID(_ id: TODOItem.ID) -> TODOItem? {
+        items.first(where: {$0.id == id})
+    }
+
+    func executeCommand(_ command: TODOModelCommand) {
+        command.execute(self)
     }
 }
+
 
 class TODOItem: Object, Identifiable {
     @Persisted(primaryKey: true) var id: UUID = UUID()
