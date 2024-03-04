@@ -16,6 +16,8 @@
 		4C50F3FA2B93532400149416 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F3F92B93532400149416 /* Model.swift */; };
 		4C50F3FC2B93537700149416 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F3FB2B93537700149416 /* ViewModel.swift */; };
 		4C50F4432B954A7500149416 /* Model+Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F4422B954A7500149416 /* Model+Command.swift */; };
+		4C50F4452B9584FC00149416 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F4442B9584FC00149416 /* DetailView.swift */; };
+		4C50F4472B95859900149416 /* coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50F4462B95859900149416 /* coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		4C50F3F92B93532400149416 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4C50F3FB2B93537700149416 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4C50F4422B954A7500149416 /* Model+Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Command.swift"; sourceTree = "<group>"; };
+		4C50F4442B9584FC00149416 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		4C50F4462B95859900149416 /* coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +68,12 @@
 				4C50F3E62B9352E500149416 /* RealmTODOApp.swift */,
 				4C50F3E82B9352E500149416 /* ContentView.swift */,
 				4C50F4422B954A7500149416 /* Model+Command.swift */,
+				4C50F4462B95859900149416 /* coordinator.swift */,
 				4C50F3FB2B93537700149416 /* ViewModel.swift */,
 				4C50F3F92B93532400149416 /* Model.swift */,
 				4C50F3EA2B9352E700149416 /* Assets.xcassets */,
 				4C50F3EC2B9352E700149416 /* Preview Content */,
+				4C50F4442B9584FC00149416 /* DetailView.swift */,
 			);
 			path = RealmTODO;
 			sourceTree = "<group>";
@@ -158,6 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C50F3FA2B93532400149416 /* Model.swift in Sources */,
+				4C50F4472B95859900149416 /* coordinator.swift in Sources */,
+				4C50F4452B9584FC00149416 /* DetailView.swift in Sources */,
 				4C50F3E92B9352E500149416 /* ContentView.swift in Sources */,
 				4C50F3FC2B93537700149416 /* ViewModel.swift in Sources */,
 				4C50F3E72B9352E500149416 /* RealmTODOApp.swift in Sources */,

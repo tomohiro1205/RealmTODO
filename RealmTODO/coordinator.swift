@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
+class Coordinator: ObservableObject {
+    @ViewBuilder
+    func nextView(_ item: TODOItem) -> some View {
+        DetailView(item: item)
+    }
+}

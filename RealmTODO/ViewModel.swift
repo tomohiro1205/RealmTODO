@@ -51,3 +51,18 @@ class ViewModel: ObservableObject {
        }
 }
 
+extension ViewModel {
+    func updateTODOItemTitle(_ id: TODOItem.ID, newTitle: String) {
+//        let command = TODOModel.UpdateTODOItemTitle(id, newTitle: newTitle)
+//        let command = TODOModel.UpdateTODOItemString(id, keyPath: \TODOItem.title, newValue: newTitle)
+        let command = TODOModel.UpdateTODOItemProperty(id, keyPath: \TODOItem.title, newValue: newTitle)
+        objectWillChange.send()
+        model.executeCommand(command)
+    }
+
+    func updateTODOItemDetail(_ id: TODOItem.ID, newDetail: String) {
+        let command = TODOModel.UpdateTODOItemProperty(id, keyPath: \TODOItem.title, newValue: newDetail)
+        objectWillChange.send()
+        model.executeCommand(command)
+    }
+}

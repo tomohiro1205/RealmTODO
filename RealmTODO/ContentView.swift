@@ -9,12 +9,14 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var viewModel: ViewModel
+    let coordinator = Coordinator()
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(viewModel.todoItems.freeze()) { item in
-                    Text("\(item.title)")
+                    NavigationLink(destination: { coordinator.nextView(item) },
+                                   label: { Text(item.title) })
                 }
                 // onDelete 内で、削除処理
                 .onDelete { indexSet in

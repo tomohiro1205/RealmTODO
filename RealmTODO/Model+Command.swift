@@ -74,4 +74,33 @@ extension TODOModel {
             }
         }
     }
+    class UpdateTODOItemProperty<T>: TODOModelCommand {
+        let id: TODOItem.ID
+        let keyPath: ReferenceWritableKeyPath<TODOItem, T>
+        let newValue: T
+        var oldValue: T?
+
+        init(_ id: TODOItem.ID, keyPath: ReferenceWritableKeyPath<TODOItem, T>, newValue: T) {
+            self.id = id
+            self.keyPath = keyPath
+            self.newValue = newValue
+            self.oldValue = nil
+        }
+
+        func execute(_ model: TODOModel) {
+            guard let item = model.itemFromID(id) else { return }
+            try! model.realm.write {
+                self.oldValue = item[keyPath: keyPath]
+                item[keyPath: keyPath] = newValue
+            }
+        }
+
+        func undo(_ model: TODOModel) {
+            guard let item = model.itemFromID(id) else { return }
+            guard let oldValue = oldValue else { return } // not executed yet?
+            try! model.realm.write {
+                item[keyPath: keyPath]  = oldValue
+            }
+        }
+    }
 }
