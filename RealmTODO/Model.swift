@@ -11,6 +11,8 @@ import RealmSwift
 
 class TODOModel: ObservableObject {
     var config: Realm.Configuration
+    var undoStack: [TODOModelCommand] = []
+    var redoStack: [TODOModelCommand] = []
 
     init() {
         config = Realm.Configuration()
@@ -29,7 +31,28 @@ class TODOModel: ObservableObject {
     }
 
     func executeCommand(_ command: TODOModelCommand) {
+        redoStack = []
         command.execute(self)
+        undoStack.append(command)
+    }
+
+    var undoable: Bool {
+        return !undoStack.isEmpty
+    }
+    var redoable: Bool {
+        return !redoStack.isEmpty
+    }
+
+    func undo() {
+        guard let undoCommand = undoStack.popLast() else { return }
+        undoCommand.undo(self)
+        redoStack.append(undoCommand)
+    }
+
+    func redo() {
+        guard let redoCommand = redoStack.popLast() else { return }
+        redoCommand.execute(self)
+        undoStack.append(redoCommand)
     }
 }
 

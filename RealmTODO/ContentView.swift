@@ -47,6 +47,21 @@ struct MainView: View {
                         Image(systemName: "plus")
                     })
                 }
+                ToolbarItemGroup(placement: .bottomBar){
+                    Button(action: {
+                        viewModel.undo()
+                    }, label: {
+                        Text("UNDO")
+                    })
+                    .disabled(!viewModel.undoable)
+                    Button(action: {
+                        viewModel.redo()
+                    }, label: {
+                        Text("REDO")
+                    })
+                    .disabled(!viewModel.redoable)
+                    Spacer()
+                }
             }
         }
     }

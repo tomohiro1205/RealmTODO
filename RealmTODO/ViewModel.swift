@@ -17,6 +17,25 @@ class ViewModel: ObservableObject {
         model.items
     }
 
+    func undo() {
+        guard undoable else { return }
+        objectWillChange.send()
+        model.undo()
+    }
+
+    func redo() {
+        guard redoable else { return }
+        objectWillChange.send()
+        model.redo()
+    }
+
+    var undoable: Bool {
+        return model.undoable
+    }
+    var redoable: Bool {
+        return model.redoable
+    }
+
     func addTODOItem(_ title: String, detail: String = "") {
         let command = TODOModel.CreateTODOItemCommand(title, detail: detail)
         objectWillChange.send()
